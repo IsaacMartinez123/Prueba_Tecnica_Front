@@ -15,19 +15,46 @@ body {
     text-align: right !important;
 }
 
-.btn-success{
+/* .btn-success{
     background-color: rgb(92, 135, 93) !important;
     border-color: rgb(92, 135, 93) !important;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-success:hover{
+    background-color: rgb(75, 95, 75) !important;
+    border-color: rgb(75, 95, 75) !important;
+    transform: scale(1.1);
+    cursor: pointer
+} */
+.btn-create{
+    padding-inline: 1rem !important;
 }
 
 .btn-danger{
     background-color: rgb(177, 63, 84) !important;
     border-color: rgb(177, 63, 84)!important;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-danger:hover{
+    background-color: rgb(120, 49, 61) !important;
+    border-color: rgb(120, 49, 61) !important;
+    transform: scale(1.1);
+    cursor: pointer
 }
 
 .btn-primary{
     background-color: rgb(76, 86, 162) !important;
     border-color: rgb(76, 86, 162) !important;
+    transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.btn-primary:hover{
+    background-color: rgb(54, 62, 133) !important;
+    border-color: rgb(54, 62, 133) !important;
+    transform: scale(1.1);
+    cursor: pointer
 }
 
 .rounded-table {
@@ -67,4 +94,8 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.invalid-feedback{
+    color: rgb(188, 58, 82)  !important;
 }

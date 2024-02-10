@@ -3,6 +3,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import validate from './validate';
+import Swal from 'sweetalert2';
 
 const EditProduct = () => {
 
@@ -64,7 +65,12 @@ const EditProduct = () => {
         event.preventDefault();
 
         if (!input.name || !input.price || !input.quantity || !input.code) {
-            return alert("You Must Fill Out All Fields To Register A Product");
+            return Swal.fire({
+                title: 'Warning!',
+                text: 'You Must Fill Out All Fields To Edit A Product',
+                icon: 'warning',
+                confirmButtonColor: '#4C56A2',
+                });
         }
 
         try {
@@ -79,6 +85,12 @@ const EditProduct = () => {
         finally {
             setLoading(false);
             navigate("/");
+            return Swal.fire({
+                title: 'Success!',
+                text: 'Successfully Edited Product',
+                icon: 'success',
+                confirmButtonColor: '#4C56A2',
+                });
         }
     }
 
@@ -96,32 +108,32 @@ const EditProduct = () => {
                     <div className="form-container card-body">
                         <form onSubmit={handleOnSubmit}>
                             <div className="form-group mx-5 mb-3">
-                                <label htmlFor="name" className="control-label mb-2">Name</label>
-                                <input onChange={handleChange} value={input.name} type="text" className="form-control" name="name" placeholder="Enter Product Name" />
-                                {error.name && <p className="alert alert-danger small mt-2">{error.name}</p>}
+                                <label htmlFor="name" className="form-label mb-2">Name</label>
+                                <input onChange={handleChange} value={input.name} type="text" className={`form-control ${error.name ? 'is-invalid' : 'is-valid'}`} name="name" placeholder="Enter Product Name" />
+                                {error.name && <div className="invalid-feedback">{error.name}</div>}
                             </div>
 
                             <div className="form-group mx-5 mb-3">
-                                <label for="price" className="control-label mb-2">Price</label>
-                                <input onChange={handleChange} value={input.price} type="text" className="form-control" name="price" placeholder="Enter Product Price" />
-                                {error.price && <p className="alert alert-danger small mt-2">{error.price}</p>}
+                                <label for="price" className="form-label mb-2">Price</label>
+                                <input onChange={handleChange} value={input.price} type="text" className={`form-control ${error.price ? 'is-invalid' : 'is-valid'}`} name="price" placeholder="Enter Product Price" />
+                                {error.price && <div className="invalid-feedback">{error.price}</div>}
                             </div>                    
                                                     
                             <div className="form-group mx-5 mb-3">
-                                <label for="quantity" className="control-label mb-2">Quantity</label>
-                                <input onChange={handleChange} value={input.quantity} type="text" className="form-control" name="quantity" placeholder="Enter Product Quantity" />
-                                {error.quantity && <p className="alert alert-danger small mt-2">{error.quantity}</p>}
+                                <label for="quantity" className="form-label mb-2">Quantity</label>
+                                <input onChange={handleChange} value={input.quantity} type="text" className={`form-control ${error.quantity ? 'is-invalid' : 'is-valid'}`} name="quantity" placeholder="Enter Product Quantity" />
+                                {error.quantity && <div className="invalid-feedback">{error.quantity}</div>}
                             </div>    
 
                             <div className="form-group mx-5 mb-3">
-                                <label for="code" className="control-label mb-2">Code</label>
-                                <input onChange={handleChange} value={input.code} type="text" className="form-control" name="code" placeholder="Enter Product Code" />
-                                {error.code && <p className="alert alert-danger small mt-2">{error.code}</p>}
+                                <label for="code" className="form-label mb-2">Code</label>
+                                <input onChange={handleChange} value={input.code} type="text" className={`form-control ${error.code ? 'is-invalid' : 'is-valid'}`} name="code" placeholder="Enter Product Code" />
+                                {error.code && <div className="invalid-feedback">{error.code}</div>}
                             </div>                                    
 
-                            <div className="form-group mt-4 d-flex justify-content-around">
-                                <button type="submit" className="btn btn-success">Edit</button>
-                                <Link to="/" className="btn btn-primary">Back</Link>
+                            <div className="form-group mt-4 d-flex justify-content-center">
+                                <button type="submit" className="btn btn-primary">Edit</button>
+                                <Link to="/" className="btn btn-primary ms-5">Back</Link>
                             </div>
                         </form>
                     </div>

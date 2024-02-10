@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Index = () => {
 
@@ -38,6 +39,12 @@ const Index = () => {
             console.error(error);
         }finally {
             setLoading(false);
+            return Swal.fire({
+                title: 'Success!',
+                text: 'Product Successfully Removed',
+                icon: 'success',
+                confirmButtonColor: '#4C56A2',
+                });
         }
     }
 
@@ -57,7 +64,7 @@ const Index = () => {
                 <h1 className='my-5 text-light text-center'>List Of Products</h1>
                 
                 <div className='d-flex justify-content-end mb-4'>
-                    <Link to='/create' className='btn btn-success'>Create Products</Link>
+                    <Link to='/create' className='btn btn-primary btn-create'> <i className="fa-solid fa-plus"></i></Link>
                 </div>
                 <table className="table table-striped table-dark rounded-table text-center">
                     <thead>
@@ -77,9 +84,9 @@ const Index = () => {
                         <td>{product.quantity}</td>
                         <td>{product.code}</td>
                         <td>
-                            <Link to={`edit/${product.id}`} className='btn btn-primary me-3 mb-1'>Edit</Link>
+                            <Link to={`edit/${product.id}`} className='btn btn-primary me-3 mb-1'><i className="fa-solid fa-pen-to-square"></i></Link>
                             <button className='btn btn-danger ms-3 mb-1' onClick={ () => deleteproducts(product.id)}>
-                                X
+                                <i className="fa-solid fa-trash-can"></i>
                             </button>
                         </td>
                     </tr>
