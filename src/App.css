@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+
+body {
+    background-image: url("https://img.freepik.com/foto-gratis/desenfoque-lujo-abstracto-degradado-gris-oscuro-negro-utilizado-como-pared-estudio-fondo-exhibir-sus-productos_1258-52814.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-container {
+    background-color: #8e939e;
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.control-label{
+    text-align: right !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn-success{
+    background-color: rgb(92, 135, 93) !important;
+    border-color: rgb(92, 135, 93) !important;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-danger{
+    background-color: rgb(177, 63, 84) !important;
+    border-color: rgb(177, 63, 84)!important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-primary{
+    background-color: rgb(76, 86, 162) !important;
+    border-color: rgb(76, 86, 162) !important;
+}
+
+.rounded-table {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table {
+    width: 70%;
+}
+
+
+.table thead th:nth-child(5) {
+    width: 13%; 
+}
+
+.card-footer{
+    background-color: #8e939e !important;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
