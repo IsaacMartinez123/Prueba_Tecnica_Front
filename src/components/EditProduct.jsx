@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import validate from './validate';
 import Swal from 'sweetalert2';
+import Loading from './Loading';
 
 const EditProduct = () => {
 
@@ -97,12 +98,10 @@ const EditProduct = () => {
     return (
         <div className="container my-5">
             {loading ? 
-                <div className="loading">
-                    <div className="spinner"></div>
-                </div> 
+                <Loading />
                 : (
                 <div className="card col-md-8 mx-auto rounded-top-4">
-                    <div className="card-header rounded-top-4 text-center text-white" style={{ backgroundColor: "#282c34" }}>
+                    <div className="card-header rounded-top-4 text-center text-white">
                         <h4>Product Edit Form</h4>
                     </div>
                     <div className="form-container card-body">
@@ -131,9 +130,9 @@ const EditProduct = () => {
                                 {error.code && <div className="invalid-feedback">{error.code}</div>}
                             </div>                                    
 
-                            <div className="form-group mt-4 d-flex justify-content-center">
-                                <button type="submit" className="btn btn-primary">Edit</button>
-                                <Link to="/" className="btn btn-primary ms-5">Back</Link>
+                            <div className="form-group mt-4 d-flex justify-content-center px-5">
+                                <button type="submit" className="btn btn-primary btn-form">Edit</button>
+                                <Link to="/" className="btn btn-primary btn-form ms-5">Back</Link>
                             </div>
                         </form>
                     </div>

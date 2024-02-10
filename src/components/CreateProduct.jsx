@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import validate from './validate';
 import Swal from 'sweetalert2';
+import Loading from './Loading';
 
 const CreateProduct = () => {
 
@@ -24,6 +25,10 @@ const CreateProduct = () => {
         quantity: "",
         code: ""
     });
+
+    useEffect(() => {
+        setError(validate(input));
+    }, [])
 
     const handleChange = (event) => {
         event.preventDefault();
@@ -75,18 +80,16 @@ const CreateProduct = () => {
     return (
         <div className="container my-5 ">
             {loading ? 
-                <div className="loading">
-                    <div className="spinner"></div>
-                </div> 
+                <Loading />
                 : (
                 <div className="card col-md-8 mx-auto rounded-top-4">
-                    <div className="card-header text-center text-white rounded-top-4" style={{ backgroundColor: "#282c34" }}>
+                    <div className="card-header text-center text-white rounded-top-4">
                         <h4>Product Registration Form</h4>
                     </div>
                     <div className="form-container card-body">
                         <form onSubmit={handleOnSubmit}>
                             <div className="form-group mx-5 mb-3">
-                                <label htmlFor="name" className="form-label mb-2">Name</label>
+                                <label htmlFor="name" className="form-label mb-2">Name </label>
                                 <input onChange={handleChange} value={input.name} type="text" className={`form-control ${error.name ? 'is-invalid' : 'is-valid'}`} name="name" placeholder="Enter Product Name" />
                                 {error.name && <div className="invalid-feedback">{error.name}</div>}
                             </div>
@@ -109,9 +112,9 @@ const CreateProduct = () => {
                                 {error.code && <div className="invalid-feedback">{error.code}</div>}
                             </div>                                    
 
-                            <div className="form-group mt-4 d-flex justify-content-center">
-                                <button type="submit" className="btn btn-primary">Register</button>
-                                <Link to="/" className="btn btn-primary ms-5">Back</Link>
+                            <div className="form-group mt-4 d-flex justify-content-center px-5">
+                                <button type="submit" className="btn btn-primary btn-form">Register</button>
+                                <Link to="/" className="btn btn-primary btn-form ms-5 ">Back</Link>
                             </div>
                         </form>
                     </div>

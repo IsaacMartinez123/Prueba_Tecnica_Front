@@ -3,9 +3,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Loading from './Loading';
 
 const Index = () => {
 
+    console.log(process.env.REACT_APP_API_URL);
     const [loading, setLoading] = useState(false);
 
     const [products, setProducts] = useState()
@@ -56,12 +58,10 @@ const Index = () => {
     return (
         <div className='m-5'>
             {loading ? 
-            <div className="loading">
-                <div className="spinner"></div>
-            </div>
+            <Loading />
             :(
             <div>
-                <h1 className='my-5 text-light text-center'>List Of Products</h1>
+                <h1 className='title my-5 text-light text-center"'>LIST OF PRODUCTS</h1>
                 
                 <div className='d-flex justify-content-end mb-4'>
                     <Link to='/create' className='btn btn-primary btn-create'> <i className="fa-solid fa-plus"></i></Link>

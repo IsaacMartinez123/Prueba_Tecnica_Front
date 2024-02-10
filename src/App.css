@@ -6,6 +6,19 @@ body {
     background-attachment: fixed;
 }
 
+.title{
+    text-align: center;
+    font-weight: 600;
+}
+
+.card-header{
+    background-color: #282c34 !important;
+}
+
+.card-header h4 {
+    font-weight: 600;
+}
+
 .form-container {
     background-color: #8e939e;
     
@@ -28,7 +41,11 @@ body {
     cursor: pointer
 } */
 .btn-create{
-    padding-inline: 1rem !important;
+    padding-inline: 3rem !important;
+}
+
+.btn-form{
+    width: 48%;
 }
 
 .btn-danger{
@@ -48,6 +65,7 @@ body {
     background-color: rgb(76, 86, 162) !important;
     border-color: rgb(76, 86, 162) !important;
     transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+    font-weight: 600 !important;
 }
 
 .btn-primary:hover{
@@ -75,19 +93,27 @@ body {
     background-color: #8e939e !important;
 }
 
+.loading-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .loading {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 30vh;
+    width: 50vh;
+    margin-top: 13%;
 }
 
 .spinner {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
+    border: 10px solid #b5b3b3;
+    border-top: 10px solid #4C56A2;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     animation: spin 2s linear infinite;
 }
 
